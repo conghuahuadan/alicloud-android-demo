@@ -1,11 +1,13 @@
 package com.alibaba.sophix.demo;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 
 public class ResTestActivity extends AppCompatActivity {
     private TextView tv;
@@ -19,9 +21,18 @@ public class ResTestActivity extends AppCompatActivity {
         tv = (TextView) findViewById(R.id.tv);
         tv.setText(R.string.tv_value);
         tv.setTextColor(getResources().getColor(R.color.colorBlack));
+//        tv.setText(R.string.tv_value_2);
+//        tv.setBackgroundColor(Color.GREEN);
+//        tv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ToastUtils.showShort(""+tv.getText().toString());
+//            }
+//        });
 
         iv = (ImageView) findViewById(R.id.iv);
         iv.setImageResource(R.mipmap.add);
+        iv.setVisibility(View.GONE);
 
         ActionBar mActionBar = getSupportActionBar();
         mActionBar.setHomeButtonEnabled(true);
