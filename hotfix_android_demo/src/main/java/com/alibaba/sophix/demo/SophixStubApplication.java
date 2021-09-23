@@ -47,6 +47,7 @@ public class SophixStubApplication extends SophixApplication {
                 .setPatchLoadStatusStub(new PatchLoadStatusListener() {
                     @Override
                     public void onLoad(final int mode, final int code, final String info, final int handlePatchVersion) {
+                        Log.i(TAG, "热修复 onLoad mode: " + mode + ", code: " + code + ", info: " + info + ", handlePatchVersion: " + handlePatchVersion);
                         String msg = new StringBuilder("").append("Mode:").append(mode)
                                 .append(" Code:").append(code)
                                 .append(" Info:").append(info)

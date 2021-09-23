@@ -68,6 +68,12 @@ android {
             path "src/main/jni/Android.mk"
         }
     }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${defaultConfig.versionName}_${defaultConfig.versionCode}.apk"
+        }
+    }
 }
 
 dependencies {
