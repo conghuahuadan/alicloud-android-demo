@@ -16,7 +16,7 @@ import com.taobao.sophix.listener.PatchLoadStatusListener;
 public class SophixStubApplication extends SophixApplication {
     private final String TAG = "SophixStubApplication";
 
-    boolean isNeedRestart;
+    static boolean isNeedRestart;
 
     @Keep
     @SophixEntry(MainApplication.class)//只有这里改成自己的Application类，下面static不要改
@@ -81,22 +81,7 @@ public class SophixStubApplication extends SophixApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        SophixManager.getInstance().queryAndLoadNewPatch();
-
-        AppUtils.registerAppStatusChangedListener(new Utils.OnAppStatusChangedListener() {
-            @Override
-            public void onForeground(final Activity activity) {
-
-            }
-
-            @Override
-            public void onBackground(final Activity activity) {
-                if (isNeedRestart) {
-                    android.os.Process.killProcess(android.os.Process.myPid());
-                }
-            }
-        });
-
+//        SophixManager.getInstance().queryAndLoadNewPatch();
     }
 
     public interface MsgDisplayListener {

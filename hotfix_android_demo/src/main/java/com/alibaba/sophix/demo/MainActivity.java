@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         mTvVersion.setText(AppUtils.getAppVersionName() + "_" + AppUtils.getAppVersionCode());
+
+        SophixManager.getInstance().queryAndLoadNewPatch();
     }
 
     /**
