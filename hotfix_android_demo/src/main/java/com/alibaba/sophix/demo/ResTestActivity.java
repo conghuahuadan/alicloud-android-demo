@@ -22,7 +22,7 @@ public class ResTestActivity extends AppCompatActivity {
         tv = (TextView) findViewById(R.id.tv);
         tv.setText(R.string.tv_value);
         tv.setTextColor(getResources().getColor(R.color.colorBlack));
-        tv.setText(R.string.tv_value_2);
+        tv.setText(R.string.tv_value_3);
         tv.setBackgroundColor(Color.GREEN);
         tv.setOnClickListener(new View.OnClickListener() {
             @Override

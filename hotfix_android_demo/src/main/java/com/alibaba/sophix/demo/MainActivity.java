@@ -12,18 +12,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import com.blankj.utilcode.util.AppUtils;
 import com.taobao.sophix.SophixManager;
 
 public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_EXTERNAL_STORAGE_PERMISSION = 0;
 
     private TextView mStatusTv;
+    private TextView mTvVersion;
     private String mStatusStr = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mTvVersion = findViewById(R.id.tv_app_version);
         mStatusTv = (TextView) findViewById(R.id.tv_status);
         updateConsole(SophixStubApplication.cacheMsg.toString());
 
@@ -41,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         };
+        mTvVersion.setText(AppUtils.getAppVersionName() + "_" + AppUtils.getAppVersionCode());
     }
 
     /**
@@ -123,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.action_about_us:
                 AboutActivity.actionStart(this.getApplicationContext());
                 return true;

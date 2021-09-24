@@ -12,6 +12,7 @@
 
     <string name="tv_value">修复前tv值.......</string>
     <string name="tv_value_2">修复后，补丁成功</string>
+    <string name="tv_value_3">修复后，程序自动重启</string>
     <string name="so_test">SO文件修复测试</string>
 
     <!--应用程序信息文本-->

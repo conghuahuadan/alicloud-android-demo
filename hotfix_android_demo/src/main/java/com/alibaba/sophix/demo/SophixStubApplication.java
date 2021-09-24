@@ -1,9 +1,12 @@
 package com.alibaba.sophix.demo;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.Keep;
 import android.util.Log;
 
+import com.blankj.utilcode.util.AppUtils;
+import com.blankj.utilcode.util.Utils;
 import com.taobao.sophix.PatchStatus;
 import com.taobao.sophix.SophixApplication;
 import com.taobao.sophix.SophixEntry;
@@ -12,6 +15,8 @@ import com.taobao.sophix.listener.PatchLoadStatusListener;
 
 public class SophixStubApplication extends SophixApplication {
     private final String TAG = "SophixStubApplication";
+
+    boolean isNeedRestart;
 
     @Keep
     @SophixEntry(MainApplication.class)//只有这里改成自己的Application类，下面static不要改
@@ -61,6 +66,7 @@ public class SophixStubApplication extends SophixApplication {
                             Log.i(TAG, "sophix load patch success!");
                         } else if (code == PatchStatus.CODE_LOAD_RELAUNCH) {
                             // 如果需要在后台重启，建议此处用SharePreference保存状态。
+                            isNeedRestart = true;
                             Log.i(TAG, "sophix preload patch success. restart app to make effect.");
                         }
                     }
@@ -70,10 +76,27 @@ public class SophixStubApplication extends SophixApplication {
     public static MsgDisplayListener msgDisplayListener = null;
     public static StringBuilder cacheMsg = new StringBuilder();
 
+    private int appCount = 0;
+
     @Override
     public void onCreate() {
         super.onCreate();
-//        SophixManager.getInstance().queryAndLoadNewPatch();
+        SophixManager.getInstance().queryAndLoadNewPatch();
+
+        AppUtils.registerAppStatusChangedListener(new Utils.OnAppStatusChangedListener() {
+            @Override
+            public void onForeground(final Activity activity) {
+
+            }
+
+            @Override
+            public void onBackground(final Activity activity) {
+                if (isNeedRestart) {
+                    android.os.Process.killProcess(android.os.Process.myPid());
+                }
+            }
+        });
+
     }
 
     public interface MsgDisplayListener {
