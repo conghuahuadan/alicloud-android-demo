@@ -2,25 +2,30 @@ package com.alibaba.sophix.demo;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.AppUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.taobao.sophix.SophixManager;
 
 public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_EXTERNAL_STORAGE_PERMISSION = 0;
-
+private static final String TAG = MainActivity.class.getSimpleName();
+    
     private TextView mStatusTv;
     private TextView mTvVersion;
+    private TextView mTvChannel;
     private String mStatusStr = "";
 
     @Override
@@ -29,8 +34,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mTvVersion = findViewById(R.id.tv_app_version);
+        mTvChannel = findViewById(R.id.tv_channel);
         mStatusTv = (TextView) findViewById(R.id.tv_status);
         updateConsole(SophixStubApplication.cacheMsg.toString());
+        
+        String channel=getChannel();
+        mTvChannel.setText(getChannel());
 
         if (Build.VERSION.SDK_INT >= 23) {
             requestExternalStoragePermission();
@@ -49,6 +58,23 @@ public class MainActivity extends AppCompatActivity {
         mTvVersion.setText(AppUtils.getAppVersionName() + "_" + AppUtils.getAppVersionCode());
 
         SophixManager.getInstance().queryAndLoadNewPatch();
+
+    }
+
+    public String getChannel() {
+        ApplicationInfo ai = null;
+        try {
+            ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            Object channel = ai.metaData.get("UMENG_CHANNEL");
+            if (channel != null) {
+                return channel.toString();
+            }
+
+            return "no channel";
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return "no channel";
+        }
     }
 
     /**
@@ -93,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, ResTestActivity.class));
                 break;
             case R.id.btn_download:
+                ToastUtils.showShort(getChannel());
                 SophixManager.getInstance().queryAndLoadNewPatch();
                 break;
             case R.id.btn_test:

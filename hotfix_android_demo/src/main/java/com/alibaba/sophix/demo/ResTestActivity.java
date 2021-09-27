@@ -23,7 +23,7 @@ public class ResTestActivity extends AppCompatActivity {
         tv.setText(R.string.tv_value);
         tv.setTextColor(getResources().getColor(R.color.colorBlack));
         tv.setText(R.string.tv_value_3);
-        tv.setBackgroundColor(Color.RED);
+        tv.setBackgroundColor(Color.GREEN);
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

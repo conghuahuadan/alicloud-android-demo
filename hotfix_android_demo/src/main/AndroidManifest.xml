@@ -23,7 +23,9 @@
         <meta-data
             android:name="com.taobao.android.hotfix.RSASECRET"
             android:value="MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCsLrq4vgrWG3q6ZvJN/5ZWipYiFOCfSXd5Mig4k1rRWWABAx0TPtfvddxi5RzS0+TBbjmrv6sQG8w1d17jKZyBORXyjU2Cj3ILFj3DMoGIiWpHc6JJdpqdnVMHaKS1jQFy25v7xo1RrRrLLvlIhDhIZvtlw2PECkY2nd0qMg5pPYWn/cqDo/4LTSoOT1O/eC/4T+qbuGJFgWZYNlMFLh/6HCUyl1+UxnMfyywZXf1/6qi3ZBR4/8Z0yiVTThMqxYS22kVE2OAPuEqkZ+aE9IIO1GI2/3aqKLZjroK+c925ZefPeNquMSRgYYMF6ZNI9GrVHYUePSc91Uj5x4EXePWNAgMBAAECggEACx2tMlYajv4RK02QIRb6FrY1wReF9OKiUvG5BQYGW/OgLhCMZPyupif+xWezN600XISINp1WJuEUivMc7h92miUcVJ9ovKAUJcEW1a5CDJWKhfhiJsoAa2KHxLetwobK7CZfaJ7F6tr5Gtr6fwMCOzJi0owNuc9L/ySr7Zhzs7mI9hP05OFmnq5S3mN2aKIb7wS5Xo/mLQxEqtIDWNhqwHEc5l7ldLjK55M56gKAFim4khVVU0vfSwj2EFT7LH19oAXsk9sTYzav+UzgayNmOHOa9f6ASEOvZiM2mJJIDaIOPGRxjOlihDLLWNP2Aaze3JYeWWOBMD3C4Mh+EMexgQKBgQDUoaQZRSXix3mOpQOWfDHNpJN73YIvqskz7sc2n4TjH7g03UMHP0R8EnCUtzHchaB0Yaat1XqnX+rvZ+rEu7zF3lyz/FZ/H1RdEDVZBnPofThtQDXPkf4on1THrodY7M2REXHK03PUCcEsJ8ic/8Kd+wPTaAsAdbcXrS0zUPudLQKBgQDPTRYrakfsbbM0BjpTbq/Ptr6G3hT+74WSIGxBzFqLRvIq0Csmro6iI+okWQLMK0AtNQMUMRdzAjiC3XgHfg9VadpJWuyNNjWhOKlINtBio3gNT8OGX/0S4/U/KMyYKo3RmjpA17fXp5B0LON/iPmeS5xFAzqG4VoWCecnwt+14QKBgDYzpiMS719pveDQy6NWsVNceoP+qSsBfByS55FTBIrpEQnYxTdZt1lxUeV29WzjW02Pfu+dFZEI8Fhqwvu3Z52A21y+HEZ3dAftE8xHytAe631d+tmYu5MbWn80TCgs5RHvwnQThtksS2O4GHl88N1YmVcQlI1fdHbCnF0SbbFZAoGAUH62ZRVX6E6Qj1r7uvn3+sgTI3uI25VWYG+GmeYoInzh/A3pM5QEfqFDgemuVGlW+jbjgyus11O9bdNhkEc63QfFY0aTJCIwoPHHier+785aB5E5cyxCsNsjl+rXxx5/AyzIAfXBxVOjm/jyPcuKYhUqEQI377gBqx0dTSs2gwECgYAKfo1gJNq0tnC1+R10v6XfrkEji5Mw/Bs7C70F3GnR8tc8/W0u1uBG88p8o7WjPokw67Lv1CEi8xgnaYS9DXjNYVI4faaDY7mUNJr/Jka2KemKwT0Zi02GF6awAYZBW2NPklZ0PgJgkHAxjnp8gR9oEZtb+D7zO0w5ukIbqMAY5g==" />
-
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="samsung_test" />
         <activity
             android:name="com.alibaba.sophix.demo.MainActivity"
             android:label="@string/app_name">
